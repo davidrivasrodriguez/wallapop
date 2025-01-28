@@ -19,6 +19,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $paths = [
+            storage_path('app/private/products'),
+            storage_path('app/private/profiles'),
+        ];
+    
+        foreach ($paths as $path) {
+            if (!file_exists($path)) {
+                mkdir($path, 0755, true);
+            }
+        }
     }
 }

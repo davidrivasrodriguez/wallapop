@@ -90,9 +90,18 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" id="submit-btn">
                                     List Product
                                 </button>
+                                <script>
+                                    document.querySelector('form').addEventListener('submit', function(e) {
+                                        const btn = document.querySelector('#submit-btn');
+                                        if (btn) {
+                                            btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Creating...';
+                                            btn.disabled = true;
+                                        }
+                                    });
+                                </script>
                             </div>
                         </div>
                     </form>

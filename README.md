@@ -1,11 +1,12 @@
-# Laravel Project
+# Wallapop Marketplace
 
-This is a project based on the Laravel framework. It includes functionalities for user management, authentication, and more.
+This is a marketplace project based on the Laravel framework. It includes functionalities for product listings, user management, authentication, and category management.
 
 ## Requirements
 
 - PHP >= 8.2
 - Composer
+- MySQL/SQLite
 
 ## Installation
 
@@ -13,8 +14,8 @@ Follow these steps to install and set up the project:
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/davidrivasrodriguez/firstUserApp
-    cd firstUserApp
+    git clone https://github.com/davidrivasrodriguez/wallapop
+    cd marketplace
     ```
 
 2. Install PHP dependencies:
@@ -37,44 +38,54 @@ Follow these steps to install and set up the project:
     php artisan migrate
     ```
 
-
 ## Usage
 
-### User Management
+### Product Management
 
-The project includes routes for user management. You can access the following routes:
+Users can perform the following actions:
+- View all products: `/sales`
+- Create new listing: `/sales/create`
+- Edit listing: `/sales/{sale}/edit`
+- Delete listing: `/sales/{sale}`
 
-- Create user: `{admin,superadmin}/users/create`
-- List users: `{admin,superadmin}/users`
-- Edit user: `{admin,superadmin}/users/{user}/edit`
-- Delete user: `{admin,superadmin}/users/{user}`
+### Category Management (Admin Only)
 
-### Authentication
+Administrators can manage product categories through:
+- View categories: `/categories`
+- Create category: `/categories/create`
+- Edit category: `/categories/{category}/edit`
+- Delete category: `/categories/{category}`
 
-The project uses Laravel's basic authentication. You can register, log in, and manage authenticated users. And users can Upload profile image
+### User Features
 
+- User registration and authentication
+- Profile management
+- Product listing management
+- Product image uploads
+- Product browsing and search
+
+### Admin Features
+
+- User management
+- Category management
+- System settings
+- Content moderation
 
 ## Screenshots
 
-Here are some screenshots of the application:
-
-### Login
-![Login](assets/6.png)
-
-### Register
-![Register](assets/7.png)
+Include your application screenshots here:
 
 ### Home Page
-![Home Page](assets/1.png)
+!Home
 
-### Profile Settings
-![Profile Settings](assets/2.png)
+### Product Listing
+!Products
 
-### Create User
-![Create User](assets/3.png)
+### Create Listing
+![New Listing](assets/)
 
-### User Management
-![User Management](assets/4.png)
+### Profile Dashboard
+!Profile
 
-### User Editing
-![User Editing](assets/5.png)
+### Admin Panel
+!Admin

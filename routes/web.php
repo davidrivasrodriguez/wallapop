@@ -50,3 +50,28 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('settings', SettingController::class);
     });
 });
+
+
+
+Route::get('private-storage/{path}', function ($path) {
+    if (Auth::check()) {
+        try {
+            // Get full path from the private storage products directory
+            $fullPath = 'products/' . $path;
+            
+            // Check if file exists
+            if (!Storage::disk('private')->exists($fullPath)) {
+                abort(404);
+            }
+            
+            // Return file response with proper content type
+            return Storage::disk('private')->response($fullPath, null, [
+                'Cache-Control' => 'private, max-age=3600'
+            ]);
+        } catch (\Exception $e) {
+            \Log::error('Error serving private file: ' . $e->getMessage());
+            abort(500);
+        }
+    }
+    abort(403);
+})->where('path', '.*')->name('private.storage');
