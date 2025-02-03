@@ -97,5 +97,8 @@ Administrators can manage product categories through:
 ### Admin User Editing
 ![Admin User Editing](assets/5.png)
 
+### Admin Products Editing
+![Admin Products Editing](assets/10.png)
+
 ### Self User Editing
 ![Selg User Editing](assets/9.png)
