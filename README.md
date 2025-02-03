@@ -15,7 +15,7 @@ Follow these steps to install and set up the project:
 1. Clone the repository:
     ```sh
     git clone https://github.com/davidrivasrodriguez/wallapop
-    cd marketplace
+    cd wallapop
     ```
 
 2. Install PHP dependencies:
