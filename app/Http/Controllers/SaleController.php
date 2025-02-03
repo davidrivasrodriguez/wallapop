@@ -26,6 +26,14 @@ class SaleController extends Controller
                     
         return view('sales.index', compact('sales'));
     }
+
+    public function adminIndex()
+    {
+        $sales = Sale::with(['category', 'user'])
+                 ->latest()
+                 ->paginate(15);
+        return view('admin.sales.index', compact('sales'));
+    }
     
     public function create()
     {

@@ -63,6 +63,12 @@ class UserController extends Controller
             'profile_photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
     
+        if (Auth::user()->role === 'superadmin' && Auth::user()->id != $user->id) {
+            $validationRules['role'] = 'required|string|in:user,admin,superadmin';
+        }
+        elseif (Auth::user()->role === 'admin' && $user->role === 'user') {
+            $validationRules['role'] = 'required|string|in:user,admin';
+        }
 
         if ($request->has('remove_photo') && $request->remove_photo == 1) {
             if ($user->profile_photo) {
@@ -93,11 +99,19 @@ class UserController extends Controller
         
             $user->profile_photo = $imageName;
         }
-        
+
+        $validated = $request->validate($validationRules);
+
         $user->name = $request->name;
         $user->email = $request->email;
         if ($request->filled('password')) {
             $user->password = Hash::make($request->password);
+        }
+        if (Auth::user()->role === 'superadmin' && Auth::user()->id != $user->id) {
+            $user->role = $request->role;
+        }
+        elseif (Auth::user()->role === 'admin' && $user->role === 'user') {
+            $user->role = $request->role;
         }
         $user->save();
         

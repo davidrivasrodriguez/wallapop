@@ -28,6 +28,10 @@ Route::middleware(['auth', AdminMiddleware::class])->prefix('admin')->name('admi
     Route::get('users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
     Route::put('users/{user}', [UserController::class, 'update'])->name('users.update');
     Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+
+
+    Route::get('sales', [SaleController::class, 'adminIndex'])->name('sales.index');
+
 });
 
 Route::middleware(['auth', SuperAdminMiddleware::class])->prefix('superadmin')->name('superadmin.')->group(function () {
@@ -37,6 +41,8 @@ Route::middleware(['auth', SuperAdminMiddleware::class])->prefix('superadmin')->
     Route::get('users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
     Route::put('users/{user}', [UserController::class, 'update'])->name('users.update');
     Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
+
+    Route::get('sales', [SaleController::class, 'adminIndex'])->name('sales.index');
 });
 
 
@@ -50,6 +56,7 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('settings', SettingController::class);
     });
 });
+
 
 
 

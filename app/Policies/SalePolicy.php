@@ -37,7 +37,7 @@ class SalePolicy
      */
     public function update(User $user, Sale $sale)
     {
-        return $user->id === $sale->user_id;
+        return $user->id === $sale->user_id || $user->role === 'admin' || $user->role === 'superadmin';
     }
 
     public function delete(User $user, Sale $sale)

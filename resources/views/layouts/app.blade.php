@@ -41,6 +41,11 @@
                                     <a class="nav-link" href="{{ route('admin.users.index') }}">Manage Users</a>
                                 </li>
                             @endif
+                            @if(Auth::user()->role == 'admin' || Auth::user()->role == 'superadmin')
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.sales.index') }}">Manage Products</a>
+                                </li>
+                            @endif
                         @endauth
                     </ul>
 
