@@ -73,19 +73,29 @@ Administrators can manage product categories through:
 
 ## Screenshots
 
-Include your application screenshots here:
-
 ### Home Page
-!Home
+![Home](assets/1.png)
+
+### Products For Sale
+![For Sale](assets/2.png)
 
 ### Product Listing
-!Products
+![Listing](assets/3.png)
 
-### Create Listing
-![New Listing](assets/)
+### Product Details
+![Product Details](assets/6.png)
 
-### Profile Dashboard
-!Profile
+### Reserved Product Details
+![Reserved Product Details](assets/7.png)
 
-### Admin Panel
-!Admin
+### Product Edit
+![Reserved Product Details](assets/8.png)
+
+### User Management
+![User Management](assets/4.png)
+
+### Admin User Editing
+![Admin User Editing](assets/5.png)
+
+### Self User Editing
+![Selg User Editing](assets/9.png)

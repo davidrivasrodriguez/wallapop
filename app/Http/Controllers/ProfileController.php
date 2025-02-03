@@ -36,11 +36,10 @@ class ProfileController extends Controller
         }
     
         if ($request->hasFile('profile_photo')) {
-            $path = 'profiles/' . auth()->id();
             $imageName = time() . '.' . $request->profile_photo->extension();
-            $filePath = $request->profile_photo->storeAs($path, $imageName, 'private');
-            
-            $user->profile_photo = $filePath;
+            // Store in public directory instead of private
+            $filePath = $request->profile_photo->storeAs('profileImages', $imageName);
+            $user->profile_photo = $imageName; // Store just the filename
         }
     
         $user->name = $request->name;
