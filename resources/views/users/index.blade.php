@@ -42,13 +42,19 @@
                                                 <form action="{{ route('admin.users.destroy', $user) }}" method="POST" style="display:inline;">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                    <button type="submit" class="btn btn-danger" 
+                                                            onclick="return confirm('Are you sure you want to delete this user? This action cannot be undone.')">
+                                                        Delete
+                                                    </button>
                                                 </form>
                                             @elseif (Auth::user()->role == 'admin' && $user->role != 'superadmin')
                                                 <form action="{{ route('admin.users.destroy', $user) }}" method="POST" style="display:inline;">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                    <button type="submit" class="btn btn-danger" 
+                                                            onclick="return confirm('Are you sure you want to delete this user? This action cannot be undone.')">
+                                                        Delete
+                                                    </button>
                                                 </form>
                                             @endif
                                         @endif
